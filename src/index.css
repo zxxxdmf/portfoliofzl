@@ -1,7 +1,7 @@
 /* Import Tailwind CSS - Pastikan Tailwind dikonfigurasi dengan benar di proyek Anda */
-@import "base";
-@import "components";
-@import "utilities";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Impor Google Fonts - Ini juga bisa dilakukan melalui <link> di public/index.html */
 /* @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); */
