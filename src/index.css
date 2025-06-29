@@ -1,0 +1,99 @@
+/* Import Tailwind CSS - Pastikan Tailwind dikonfigurasi dengan benar di proyek Anda */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Impor Google Fonts - Ini juga bisa dilakukan melalui <link> di public/index.html */
+/* @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); */
+
+/* Kelas Font Kustom */
+.font-playfair-display {
+  font-family: 'Playfair Display', serif;
+}
+.font-lora {
+  font-family: 'Lora', serif;
+}
+
+/* Animasi Kustom untuk Entri Bagian */
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-slide-up {
+  animation: fadeInSlideUp 0.9s ease-out forwards;
+}
+
+/* Animasi untuk garis bawah NavLink */
+@keyframes grow {
+  from { transform: scaleX(0);}
+  to   { transform: scaleX(1);}
+}
+.animate-grow {
+  animation: grow 0.3s ease-out forwards;
+}
+
+/* Transisi halus untuk perubahan tema dan transform (skala/terjemahan) */
+.transition-colors-theme * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.transition-transform {
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+/* === CSS untuk Animasi Gradient Bergerak yang Lebih Kompleks (Seperti Gambar) === */
+.animated-gradient-background {
+  /* Menggunakan beberapa latar belakang untuk efek berlapis dan cair */
+  background:
+    /* Glow pertama: Ungu cerah, melayang di atas */
+    radial-gradient(circle at 20% 80%, rgba(160, 0, 160, 0.4) 0%, rgba(0, 0, 0, 0) 70%),
+    /* Glow kedua: Magenta, melayang di bawah */
+    radial-gradient(circle at 80% 20%, rgba(199, 0, 199, 0.4) 0%, rgba(0, 0, 0, 0) 70%),
+    /* Gradient dasar yang mengalir: transisi hitam ke ungu gelap */
+    linear-gradient(135deg, #000000 0%, #2A0A4A 25%, #000000 50%, #6A006A 75%, #000000 100%);
+  
+  /* Ukuran berbeda untuk setiap lapisan background agar pergerakan terlihat tidak monoton */
+  background-size: 300% 300%, 300% 300%, 400% 400%; 
+  
+  /* Animasi berganda untuk pergerakan berlapis yang kompleks */
+  animation:
+    gradientMove1 20s ease infinite,     /* Gerakan lambat untuk glow pertama */
+    gradientMove2 15s ease-in-out infinite, /* Gerakan sedang untuk glow kedua */
+    gradientBase 25s ease infinite;      /* Gerakan dasar untuk gradient utama */
+}
+
+/* Keyframes untuk gradient dasar */
+@keyframes gradientBase {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Keyframes untuk gerakan glow 1 */
+@keyframes gradientMove1 {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 0%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Keyframes untuk gerakan glow 2 */
+@keyframes gradientMove2 {
+  0% { background-position: 100% 100%; }
+  25% { background-position: 0% 50%; }
+  50% { background-position: 50% 0%; }
+  75% { background-position: 100% 50%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Memastikan body mengambil tinggi penuh dan gulir halus */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
